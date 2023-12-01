@@ -1,1 +1,1 @@
-# Numerical-relativity_neutron_star# Numerical_relativity
+# Numerical_relativity
