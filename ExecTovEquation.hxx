@@ -1,4 +1,5 @@
 #include <vector>
+//#include <array>
 #include <cmath>
 class ExecTovEquation{
     private:
@@ -7,6 +8,8 @@ class ExecTovEquation{
     public:
         int ExecTOVxCoord(Storage &storage){
             for (int i = 1; i < storage.getSize(); ++i) {
+                //std::array<double, 4> y0 = {storage.getMass(i - 1), storage.getPressure(i - 1), storage.getNu(i - 1), storage.getRadius(i - 1)};
+                //std::array<double, 4> y_new = rk4_solver(tov_equations_x, y0, Var::h, storage.getX(i - 1), storage.getE(i - 1));
                 std::vector<double> y0 = {storage.getMass(i - 1), storage.getPressure(i - 1), storage.getNu(i - 1), storage.getRadius(i - 1)};
                 std::vector<double> y_new = rk4_solver(tov_equations_x, y0, Var::h, storage.getX(i - 1), storage.getE(i - 1));
 
@@ -30,6 +33,8 @@ class ExecTovEquation{
         int ExecTOVrCoord(Storage &storage) {
 
             for (int i = 1; i < storage.getSize(); ++i) {
+                //std::array<double, 3> y0 = {storage.getMass(i - 1), storage.getPressure(i - 1), storage.getNu(i - 1)};
+                //std::array<double, 3> y_new = rk4_solver(tov_equations_r, y0, Var::h, storage.getRadius(i - 1), storage.getE(i - 1));
                 std::vector<double> y0 = {storage.getMass(i - 1), storage.getPressure(i - 1), storage.getNu(i - 1)};
                 std::vector<double> y_new = rk4_solver(tov_equations_r, y0, Var::h, storage.getRadius(i - 1), storage.getE(i - 1));
 
@@ -56,7 +61,7 @@ class ExecTovEquation{
                 double dnudr = (m + 4 * M_PI * std::pow(r, 3) * P) / (r * (r - 2 * m));
                 double dmdr = 4 * M_PI * std::pow(r, 2) * (std::pow(P / Var::K, 1.0 / Var::Gamma) + P / (Var::Gamma - 1));
                 double dLambdadr = (dmdr * r - m) / (r * (r - 2 * m));
-                storage.updateValues(i, m, P, updatedNu, r, storage.getLambda(i), storage.getE(i), dnudr, dLambdadr, (LastIndex == i) ? storage.getX(i) : 0.0);
+                storage.updateValues(i, m, P, updatedNu, r, storage.getLambda(i), storage.getE(i), dnudr, dLambdadr, storage.getX(i));
             }
         }
 };

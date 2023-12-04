@@ -9,7 +9,7 @@ t, h, u, s, xx, yy = np.genfromtxt(fileName, unpack=True)
 fr = np.genfromtxt(fileName2,unpack = True)
 
 
-def Signal(t, signal):
+def Signal(t, signal,type):
     # Convert time to seconds by dividing through by the speed of sound in km/s
     t = (t / 2.99792458e5)
 
@@ -30,17 +30,17 @@ def Signal(t, signal):
     
     FFTmax = []
     for i in range(len(fr)):
-        FFTmax.append(np.max(FFT)/2)
+        FFTmax.append(np.max(FFT)/4)
 
-    plt.scatter(fr, FFTmax, s = 50, c = 'red', alpha = 0.5, marker = 'o')
+    plt.scatter(fr, FFTmax, s = 20, c = 'black', alpha = 0.5, marker = 'o')
 
     plt.subplots_adjust(hspace=0.5)
 
     # plt.ylim(0, 1)  # Uncomment and adjust ylim as needed
-    # plt.savefig('spec.png')
+    plt.savefig('Plots/PowerSpectrum_for_'+type+'.png')
     plt.show()
 
-Signal(t, h); #: Amplitude and the Power Spectrum of the function h
-Signal(t, u); #: Amplitude and the Power Spectrum of the function u
-Signal(t, s); #: Amplitude and the Power Spectrum of the function s
+Signal(t, h, 'h'); #: Amplitude and the Power Spectrum of the function h
+Signal(t, u, 'u'); #: Amplitude and the Power Spectrum of the function u
+Signal(t, s, 's'); #: Amplitude and the Power Spectrum of the function s
 

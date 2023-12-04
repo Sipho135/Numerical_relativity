@@ -3,21 +3,24 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys
 
-# Define time values (you can modify this)
-time = np.linspace(0, 10000, 283015)  # Example time values from 0 to 10
+fileName = sys.argv[1] 
+fileName2 = sys.argv[2]
+r, e1, m1, P1, Cs1 = np.loadtxt(fileName, unpack=True)
+x, e, m, P, Cs = np.loadtxt(fileName2, unpack=True)
+#print(r, e1, m1, P1, Cs)
+def Plots(x1,y1, x2, y2, yLabel):
+    # Plot the first graph
+    plt.plot(x1, y1, label='r')
+    # Overlay the second graph, adjusted to align with the first plot's x-axis
+    plt.plot(x2, y2, label='x')
+    plt.xlabel('spatial coordinate[km]')
+    plt.ylabel(yLabel)
+    plt.tick_params(axis = 'both', direction = 'in', which = 'both')
+    plt.legend()
+    plt.show()
 
-def ReadFile():
-    density = np.loadtxt(sys.argv[1])
-    return np.array(density)/density[0]
 
-
-rho_c_over_rho_c0 = ReadFile()
-# Create the plot
-plt.figure(figsize=(8, 6))
-plt.plot(time, rho_c_over_rho_c0, label=r'$\rho_c/\rho_{c,0}$')
-plt.xlabel('Time')
-plt.ylabel(r'$\rho_c/\rho_{c,0}$')
-plt.title('Central Energy Density vs Time')
-plt.grid(True)
-plt.legend()
-plt.show()
+Plots(r, e1, x, e, r"$\rho[km^{-2}]$")
+Plots(r, m1, x, m, r"$M[km]$")
+Plots(r, P1, x, P, r"$p[km^{-2}]$")
+Plots(r, Cs1, x, Cs, r"$C_s$")

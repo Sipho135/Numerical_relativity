@@ -3,6 +3,7 @@
 #include <cmath>
 #include <iomanip>
 #include <vector>
+#include <thread>
 #include <sstream>
 #include <time.h>
 #include "tov_eq.hxx"
@@ -33,7 +34,9 @@ int main(int argc, char *argv[]) {
 		int t1 = clock();
 		std::cout << "it took " << t1 - t0 << " ticks, or " << ((float)t1 - t0)/CLOCKS_PER_SEC << " seconds." << std::endl;
 		outputFile.coordinateOutPut(i, LastIndex1, storage, "x");
+		//outputFile.coordinateOutPut2(i, LastIndex1, storage, "x");
 		outputFile.coordinateOutPut(i, LastIndex2, storage, "r");
+		//outputFile.coordinateOutPut2(i, LastIndex2, storage, "r");
 
 	}
 
