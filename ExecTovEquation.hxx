@@ -8,8 +8,6 @@ class ExecTovEquation{
     public:
         int ExecTOVxCoord(Storage &storage){
             for (int i = 1; i < storage.getSize(); ++i) {
-                //std::array<double, 4> y0 = {storage.getMass(i - 1), storage.getPressure(i - 1), storage.getNu(i - 1), storage.getRadius(i - 1)};
-                //std::array<double, 4> y_new = rk4_solver(tov_equations_x, y0, Var::h, storage.getX(i - 1), storage.getE(i - 1));
                 std::vector<double> y0 = {storage.getMass(i - 1), storage.getPressure(i - 1), storage.getNu(i - 1), storage.getRadius(i - 1)};
                 std::vector<double> y_new = rk4_solver(tov_equations_x, y0, Var::h, storage.getX(i - 1), storage.getE(i - 1));
 
@@ -33,8 +31,6 @@ class ExecTovEquation{
         int ExecTOVrCoord(Storage &storage) {
 
             for (int i = 1; i < storage.getSize(); ++i) {
-                //std::array<double, 3> y0 = {storage.getMass(i - 1), storage.getPressure(i - 1), storage.getNu(i - 1)};
-                //std::array<double, 3> y_new = rk4_solver(tov_equations_r, y0, Var::h, storage.getRadius(i - 1), storage.getE(i - 1));
                 std::vector<double> y0 = {storage.getMass(i - 1), storage.getPressure(i - 1), storage.getNu(i - 1)};
                 std::vector<double> y_new = rk4_solver(tov_equations_r, y0, Var::h, storage.getRadius(i - 1), storage.getE(i - 1));
 
