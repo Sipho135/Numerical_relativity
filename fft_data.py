@@ -40,7 +40,7 @@ def Signal(t, signal,type):
     plt.savefig('Plots/PowerSpectrum_for_'+type+'.png')
     plt.show()
 
-Signal(t, h, 'h'); #: Amplitude and the Power Spectrum of the function h
-Signal(t, u, 'u'); #: Amplitude and the Power Spectrum of the function u
-Signal(t, s, 's'); #: Amplitude and the Power Spectrum of the function s
+Signal(t, h, 'h2'); #: Amplitude and the Power Spectrum of the function h
+Signal(t, u, 'u2'); #: Amplitude and the Power Spectrum of the function u
+Signal(t, s, 's2'); #: Amplitude and the Power Spectrum of the function s
 

@@ -21,7 +21,7 @@ def Plots(x1, y1, x2, y2, yLabel, TYPE):
     plt.show()
    
 
-Plots(r, e1, x, e, r"$\rho[km^{-2}]$", 'e')
-Plots(r, m1, x, m, r"$M[km]$", 'm')
-Plots(r, P1, x, P, r"$p[km^{-2}]$", 'P')
-Plots(r, Cs1, x, Cs,  r"$C_s$", 'Cs')
+Plots(r, e1, x, e, r"$\rho[km^{-2}]$", 'e1')
+Plots(r, m1, x, m, r"$M[km]$", 'm1')
+Plots(r, P1, x, P, r"$p[km^{-2}]$", 'P1')
+Plots(r, Cs1, x, Cs,  r"$C_s$", 'Cs1')

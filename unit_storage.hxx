@@ -6,8 +6,6 @@ namespace Var{
 	double R = 65;			//: km
 	double Gamma = 2.0;
 	double h = 5e-5;
-	double rho_c = 5.87e-4;		//: km^{-2} 
-	double P_c = K * std::pow(rho_c, Gamma);
     int num_points = static_cast<int>(std::ceil(R / h)) + 1;
 		
 
