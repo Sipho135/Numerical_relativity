@@ -8,7 +8,7 @@ For the x-coordinate, the C++ code produces another 9 columns output that acts a
 ## How build the code
 run the Makefile
 
--- make
+make
 ## execute the code
 make run
 
