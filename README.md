@@ -10,7 +10,9 @@ run the Makefile
 
 make
 ## execute the code
-make run
+make run:
+
+for this part changes have to be made to the make file as it takes in a text file with Central densities as input.
 
 ## clean the code
 
